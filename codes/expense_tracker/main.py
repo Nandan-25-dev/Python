@@ -2,11 +2,13 @@ from expense import Expense
 from expense import Expensemanager
 from datetime import date
 manager=Expensemanager()
+manager.load_expenses()
 while True:
-    print("1. Add expense\n")
-    print("2.View Expense\n")
-    print("3.Total Expense\n")
-    print("4.Exit")
+    print("1. Add expense")
+    print("2.View Expense")
+    print("3.Total Expense")
+    print("4.Save Expenses")
+    print("5.Exit")
     choice=int(input("Enter your choice: "))
     if (choice==1):
         name=input("Enter the name of the expense: ")
@@ -17,7 +19,11 @@ while True:
     elif(choice==3):
         manager.total_expense()
     elif(choice==4):
-        print('Exiting thank you!')
+        manager.save_expenses()
+        break
+    elif(choice==5):
+        print("Thankyou, Exiting!")
         break
     else:
         print("Invalid choice!")
+manager.save_expenses()
