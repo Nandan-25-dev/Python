@@ -1,5 +1,4 @@
 from manager import Expensemanager
-from datetime import date
 manager=Expensemanager()
 manager.load_expenses()
 while True:
@@ -10,12 +9,16 @@ while True:
     print("5.Exit")
     choice=int(input("Enter your choice: "))
     if (choice==1):
+        category=input("Enter the category: ")
         name=input("Enter the name of the expense: ")
-        amount=float (input("Enter the amount of the expense: "))
-        manager.add_expense(name,amount,date)
+        amount=float(input("Enter the amount of the expense: "))
+        manager.add_expense(category,name,amount,manager.dates)
     elif(choice==2):
         manager.view_expense()
-        i=int(input("Enter index to delete!"))
+        ch=input("Press y to delete an item and n to revert back!")
+        if ch=='y':
+            i=int(input("Enter index to delete!"))
+        exit(0)
         manager.delete_expense(i)
     elif(choice==3):
         manager.total_expense()
