@@ -7,7 +7,7 @@ class Expensemanager(Expense):
         self.expenses.append(expense)
     def view_expense(self):
         for e in self.expenses:
-            print(e.name,":",e.amount,":",e.dates)
+            print(e.category,":",e.name,":",e.amount,":",e.dates)
     def total_expense(self):
         total=0
         for e in self.expenses:
@@ -33,4 +33,29 @@ class Expensemanager(Expense):
             print("Removed: ",removed.name)
         else:
             print("Invalid index")
+    def search_expense(self,key):
+        found = False
+        for e in self.expenses:
+            if key.lower() in e.name.lower():
+                print(e.name,e.amount,e.dates,e.category)
+                found=True
+            if not found:
+                print("No expenses found!!")
+    def edit_expense(self,name,new_amount):
+        for e in self.expenses:
+            if e.name==name:
+                e.amount=new_amount
+                print("Amount Updated!")
+                return
+            print("No such expense or failed to update!")
+    def budget_check(self,budget):
+        total=0
+        for e in self.expenses:
+            total+=e.amount
+        if total>budget:
+            print("Budget exceeded!!")
+        else:
+            print("Remaining budget is rs",total-budget)
+
+
 
