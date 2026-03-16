@@ -10,7 +10,8 @@ while True:
     print("5.Search Expense")
     print("6.Edit Expense")
     print("7.Check Budget")
-    print("8.Exit")
+    print("8.Export to CSV")
+    print("9.Exit")
     choice=int(input("Enter your choice: "))
     if (choice==1):
         dates=input("Enter the date (YYYY-mm-dd):  ")
@@ -40,7 +41,9 @@ while True:
     elif choice==7:
         budget=float(input("Enter the budget amount: "))
         manager.budget_check(budget)
-    elif(choice==8):
+    elif choice==8:
+        manager.export_csv()
+    elif(choice==9):
         print("Thankyou, Exiting!")
         break
     else:

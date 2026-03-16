@@ -1,4 +1,5 @@
 from expense import Expense
+import csv
 class Expensemanager(Expense):
     def __init__(self):
         self.expenses=[]
@@ -56,6 +57,13 @@ class Expensemanager(Expense):
             print("Budget exceeded!!")
         else:
             print("Remaining budget is rs",total-budget)
+    def export_csv(self):
+        with open("expenses.csv","w",newline="") as f:
+            writer=csv.writer(f)
+            writer.writerow(["Date(yyyy-mm-dd)","Name","Category","Amount"])
+            for e in self.expenses:
+                writer.writerow([e.dates,e.name,e.category,e.amount])
+        print('Expenses exported to CSV!')
 
 
 
