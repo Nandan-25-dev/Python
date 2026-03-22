@@ -27,7 +27,7 @@ class Expensemanager(Expense):
                 'Category': e.category,
                 'Name': e.name,
                 'Amount': e.amount})
-            with open("expenses.son","w") as f:
+            with open("expenses.json","w") as f:
                 json.dump(data,f,indent=4)
             print("Saved to JSON!")
     def load_expenses(self):
@@ -35,7 +35,7 @@ class Expensemanager(Expense):
             with open("expenses.json","r")as f:
                 data=json.load(f)
                 for item in data:
-                    expense=Expense(item["Eid"],item["dates"],item["category"],item["name"],item["amount"])
+                    expense=Expense(item["Eid"],item["Date"],item["Category"],item["Name"],item["Amount"])
                     self.expenses.append(expense)
             if self.expenses:
                 self.next_id=max(e.expense_id for e in self.expenses)+1

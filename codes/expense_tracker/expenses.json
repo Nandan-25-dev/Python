@@ -1,0 +1,16 @@
+[
+    {
+        "Eid": 1,
+        "Date": "2026-3-22",
+        "Category": "Food",
+        "Name": "Pizza",
+        "Amount": 4353.0
+    },
+    {
+        "Eid": 2,
+        "Date": "2026-3-24",
+        "Category": "Bills",
+        "Name": "Electricity Bill",
+        "Amount": 899.32
+    }
+]
